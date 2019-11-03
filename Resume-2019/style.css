@@ -1,0 +1,365 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+h1,h2,h3,h4,h5,h6{
+  font-weight: normal;
+}
+.headsculpture {
+  width: 270px;
+  height: 347px;
+}
+
+.topNavBar nav>ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 22px;
+}
+
+.topNavBar {
+  padding: 20px 0 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.topNavBar-inner {
+  padding: 0 16px;
+}
+
+.topNavBar .logo {
+  float: left;
+  text-decoration: none;
+  font-family: "Fredoka One";
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 22px;
+  margin: 11px 0 0 9%;
+}
+
+.topNavBar .logo>.rs {
+  color: rgb(232, 103, 107);
+}
+
+.topNavBar .logo>.card {
+  color: rgb(154, 157, 162);
+}
+
+.topNavBar nav {
+  float: right;
+  margin-top: 7px;
+}
+
+.topNavBar nav>ul>li {
+  margin-left: 17px;
+  margin-right: 17px;
+  float: left;
+}
+
+.topNavBar nav>ul>li>a {
+  font-size: 13px;
+  color: #b7b7b7;
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 3px solid transparent;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: block;
+  margin: 3px;
+  font-family: inherit;
+}
+
+.topNavBar nav>ul>li>a:hover {
+  border-bottom: 3px solid rgb(232, 103, 107);
+}
+ul,ol{
+  list-style: none;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.banner {
+  height: 515px;
+  background-image: url(./picture/rs-cover1.jpg);
+  background-position: center center;
+  background-size: cover;
+}
+
+.banner .mask {
+  height: 515px;
+  background-color: rgba(0, 0, 0, 0.8)
+}
+
+body {
+  background: rgb(239, 239, 239)
+}
+
+.userCard {
+  max-width: 929px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgb(255, 255, 255);
+  box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.35);
+}
+
+.userCard .welcome {
+  color: rgb(255, 255, 255);
+  background: rgb(232, 103, 107);
+  display: inline-block;
+  padding: 4px 16px;
+  line-height: 22px;
+  position: relative;
+}
+
+.userCard .welcome .triangle {
+  border: 10px solid transparent;
+  border-top: 0;
+  border-bottom-color: transparent;
+  border-left-color: rgb(232, 103, 107);
+  border-right-color: transparent;
+  display: block;
+  position: absolute;
+  left: 4px;
+  top: 100%;
+}
+
+.userCard .picture {
+  float: left;
+  margin-right: 65px;
+}
+
+.userCard .text {
+  float: left;
+  width: 407px;
+}
+
+.userCard .pictureAndText {
+  padding: 50px;
+}
+
+.userCard .name {
+  margin-top: 26px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 24px;
+  font-family: "Open Sans"
+}
+
+.userCard>.pictureAndText>.text>p {
+  margin-bottom: 28px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.userCard>.pictureAndText>.text>hr {
+  margin-bottom: 27px;
+  width: 470px;
+  color: rgb(161, 164, 171)
+}
+
+.userCard dl dt,
+.userCard dl dd {
+  float: left;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.userCard dl dd {
+  color: rgb(161, 164, 171);
+  width: 20%;
+}
+
+.userCard dl dt {
+  width: 30%;
+  font-weight: bold;
+}
+
+.userCard>footer.media {
+  background: rgb(232, 103, 107);
+  text-align: center;
+}
+
+.userCard>footer.media>a {
+  display: inline-block;
+  border-radius: 50%;
+  padding: 10px;
+  margin: 16px;
+}
+
+.userCard>footer.media>a:hover {
+  background: rgb(208, 92, 96);
+}
+
+.userCard svg {
+  font-size: 25px;
+  vertical-align: top;
+  color: white;
+}
+
+.userCard2 {
+  margin-top: -346px;
+}
+
+body>main .downloadResume {
+  font-size: 14px;
+  padding: 24px 60px;
+  border: 1px solid rgb(203, 205, 207);
+  line-height: 16px;
+  display: inline-block;
+  text-decoration: none;
+  color: rgb(70, 77, 89);
+  font-weight: bold;
+  margin: 32px 0;
+  border-radius: 2px;
+  transition: box-shadow 0.23s;
+}
+
+body>main .downloadResume:hover {
+  box-shadow: 0px 4px 13px 0px rgba(13,12,13,0.3);
+}
+
+body>main .downloadResume-wrapper {
+  text-align: center;
+}
+
+body>main .self-introduction {
+  max-width: 929px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-family:fantasy;
+  line-height: 1.8;
+  font-size: 18px;
+}
+section.Skills,
+section.portfolio{
+  max-width: 929px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 64px;
+  margin-bottom: 80px;
+}
+section.Skills >h2,
+section.portfolio >h2{
+  text-align: center;
+  color: #3d4451;
+  font-size: 34px;
+  line-height: 1.2;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+section.Skills h3{
+  font-size: 14px;
+  line-height: 1.1;
+  padding-right: 40px;
+}
+section.Skills >ol{
+  box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.35);
+  background: white;
+  padding: 42px 50px 0;
+}
+section.Skills >ol>li{
+  float: left;
+  width: 48%;
+  box-sizing: border-box;
+}
+section.Skills >ol>li:nth-child(even) {
+  float: right;
+}
+section.Skills .progressBar{
+  height: 5px;
+  background: rgb(250,225,225);
+  width: 100%;
+  border-radius: 3px;
+  margin: 4px 0 40px;
+}
+section.Skills .progressBar> .progress{
+  background:  rgb(232, 102, 107);
+  width:80%;
+  height:100%;
+  border-radius: 3px;
+}
+section.Skills .progressBar> .progress2{
+  width:70%;
+}
+section.Skills .progressBar> .progress3{
+  width:60%;
+}
+section.Skills .progressBar> .progress4{
+  width:50%;
+}
+section.Skills .progressBar> .progress5{
+  width:30%;
+}
+section.portfolio{
+  text-align: center;
+}
+section.portfolio >nav{
+ text-align: center;
+ display: inline-block;
+ vertical-align: top;
+}
+section.portfolio >nav>ol{
+ margin: 0 auto;
+ display: inline-block;
+ vertical-align: top;
+}
+section.portfolio >nav>ol>li{
+ float: left;
+ margin-left: 20px;
+ cursor: pointer;
+}
+section.portfolio >nav>ol>li:first-child{
+ margin-left: 0;
+}
+section.portfolio >nav> .bar{
+ background:  white;
+ height: 5px;
+ border-radius: 3px;
+ margin-top: 15px;
+ margin-bottom: 29px;
+}
+section.portfolio >nav .bar>.bar-inner{
+  background:rgb(232, 102, 107);
+  height: 100%;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+section.portfolio >nav .bar.state-1 .bar-inner{
+margin-left: 0;
+width: 30px;
+}
+section.portfolio >nav .bar.state-2 .bar-inner{
+margin-left:50px;
+width: 40px;
+}
+section.portfolio >nav .bar.state-3 .bar-inner{
+margin-left:105px;
+width:85px;
+}
+section.portfolio .works{
+  position: relative;
+  background: transparent;
+}
+section.portfolio .works>.big,
+section.portfolio .works>.small1,
+section.portfolio .works>.small2{
+  position: absolute;
+}
+section.portfolio .works>.small1{
+  margin-left:635px;
+  box-shadow: 0px 4px 13px 0px rgba(13,12,13,0.3);
+  height: 278px;
+}
+section.portfolio .works>.small2{
+  margin-left:635px;
+  margin-top: 298px;
+  height: 278px;
+  box-shadow: 0px 4px 13px 0px rgba(13,12,13,0.3);
+}
