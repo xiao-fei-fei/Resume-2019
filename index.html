@@ -15,6 +15,23 @@
       fill: currentColor;
       overflow: hidden;
     }
+    #myForm h2 {
+      text-align: center;
+      color: #3d4451;
+      font-size: 34px;
+      line-height: 1.2;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+    #messageList {
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    #messageList li {
+      padding: 10px;
+      margin: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
   </style>
 </head>
 
@@ -83,21 +100,31 @@
         </div>
       </div>
       <footer class="media">
-        <a href="#"><svg class="icon" aria-hidden="true">
+        <a href="#">
+          <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-github"></use>
-          </svg></a>
-        <a href="#"><svg class="icon" aria-hidden="true">
+          </svg>
+        </a>
+        <a href="#">
+          <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-zhihu"></use>
-          </svg></a>
-        <a href="#"><svg class="icon" aria-hidden="true">
+          </svg>
+        </a>
+        <a href="#">
+          <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-weibo"></use>
-          </svg></a>
-        <a href="#"><svg class="icon" aria-hidden="true">
+          </svg>
+        </a>
+        <a href="#">
+          <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-jianshu"></use>
-          </svg></a>
-        <a href="#"><svg class="icon" aria-hidden="true">
+          </svg>
+        </a>
+        <a href="#">
+          <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-weixin1"></use>
-          </svg></a>
+          </svg>
+        </a>
       </footer>
     </div>
     <p class="downloadResume-wrapper">
@@ -140,15 +167,15 @@
           Vue
         </h3>
         <div class="progressBar">
-            <div class="progress progress4"></div>
+          <div class="progress progress4"></div>
         </div>
       </li>
       <li>
-        <h3> 
+        <h3>
           React
         </h3>
         <div class="progressBar">
-            <div class="progress progress5"></div>
+          <div class="progress progress5"></div>
         </div>
       </li>
       <li>
@@ -170,33 +197,77 @@
         <li id="portfolio3">原生js&amp;CSS</li>
       </ol>
       <div id="portfolioBar" class="bar state-1">
-       <div class="bar-inner"></div>
+        <div class="bar-inner"></div>
       </div>
     </nav>
     <script>
-      portfolio1.onclick= function(){
-       portfolioBar.className ='bar state-1'
+      portfolio1.onclick = function () {
+        portfolioBar.className = 'bar state-1'
       }
-      portfolio2.onclick= function(){
-       portfolioBar.className ='bar state-2'
+      portfolio2.onclick = function () {
+        portfolioBar.className = 'bar state-2'
       }
-      portfolio3.onclick= function(){
-       portfolioBar.className ='bar state-3'
+      portfolio3.onclick = function () {
+        portfolioBar.className = 'bar state-3'
       }
     </script>
-<div class="works" style="height:573px">
-  <div class="big clearfix">
-    <img src="./picture/portfolio2.jpg" alt="作品1">
-  </div>
-  <div class="small1 clearfix">
-    <img src="./picture/portfolio1.jpg" alt="作品2">
-  </div>
-  <div class="small2 clearfix">
-    <img src="./picture/portfolio3.jpg" alt="作品3">
-  </div>
-</div>
-
+    <div class="works" style="height:573px">
+      <div class="big clearfix">
+        <img src="./picture/portfolio2.jpg" alt="作品1">
+      </div>
+      <div class="small1 clearfix">
+        <img src="./picture/portfolio1.jpg" alt="作品2">
+      </div>
+      <div class="small2 clearfix">
+        <img src="./picture/portfolio3.jpg" alt="作品3">
+      </div>
+    </div>
+  </section>
+  <section id="myForm" style="width: 900px;margin:0 auto;padding-bottom: 60px;">
+    <h2>留言列表</h2>
+    <ul id="messageList">
+      <li>test：test</li>
+    </ul>
+    <form>
+      <label>姓名</label>
+      <input id="name" type="text">
+      <label>内容</label>
+      <input id="content" type="text">
+      <input type="submit">
+    </form>
   </section>
 </body>
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.15.0/dist/av-min.js"></script>
+<script>
+  AV.init({
+    appId: "VQcTUbBi9Nim0w8rNeag0kiN-gzGzoHsz",
+    appKey: "13a8OEwuTyhfruaBlAagyV1i"
+  });
+  var query = new AV.Query('Message');
+  query.find().then(function (message) {
+    var str = ''
+    message.map(item => {
+      str += `<li><p>姓名：${item.attributes.name}</p><p>内容：${item.attributes.content}</p><p>时间：${item.createdAt.toLocaleString()}</p></li>`
+    })
+    document.querySelector('#messageList').innerHTML = str
+  });
+  const myForm = document.querySelector('#myForm')
+  myForm.addEventListener('submit', e => {
+    e.preventDefault()
+    var Message = AV.Object.extend('Message');
+    var message = new Message();
+    var name = document.querySelector('#name').value
+    var content = document.querySelector('#content').value
+    message.set('name', name);
+    message.set('content', content);
+    message.save().then(function (message) {
+      var li = document.createElement('li')
+      li.innerHTML = `<p>姓名：${name}</p><p>内容：${content}</p><p>时间：${new Date().toLocaleString()}</p>`
+      document.querySelector('#messageList').appendChild(li)
+      alert('留言成功')
+      document.querySelector('#content').value = ''
+    });
+  })
+</script>
 
 </html>
