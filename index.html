@@ -258,6 +258,8 @@
     var message = new Message();
     var name = document.querySelector('#name').value
     var content = document.querySelector('#content').value
+    if (name.trim() === '') { alert('请输入姓名'); return; }
+    if (content.trim() === '') { alert('请输入内容'); return; }
     message.set('name', name);
     message.set('content', content);
     message.save().then(function (message) {
